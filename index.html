@@ -83,10 +83,10 @@
             border-bottom: 1px solid rgba(255,255,255,0.10);
         }
         .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; }
-        .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: #ffffff; }
-        .brand img { width: 44px; height: 44px; border-radius: 12px; background: rgba(255,255,255,0.10); padding: 6px; }
-        .brand strong { display: block; font-size: 15px; line-height: 1.1; }
-        .brand span { display: block; font-size: 12px; opacity: 0.85; }
+        .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: #ffffff; min-width: 0; }
+        .brand img { width: 54px; height: 54px; border-radius: 14px; background: rgba(255,255,255,0.10); padding: 6px; }
+        .brand strong { display: block; font-size: 17px; line-height: 1.1; letter-spacing: -0.01em; }
+        .brand span { display: block; font-size: 13px; opacity: 0.85; }
 
         .nav { display: flex; align-items: center; gap: 16px; }
         .nav-links { display: flex; align-items: center; gap: 18px; list-style: none; margin: 0; padding: 0; }
@@ -265,6 +265,9 @@
             .nav-actions .btn-ghost { display: none; }
             .section-header { flex-direction: column; align-items: flex-start; }
             .btn { padding: 11px 14px; font-size: 13px; }
+            .brand img { width: 46px; height: 46px; border-radius: 13px; }
+            .brand strong { font-size: 16px; }
+            .brand span { font-size: 12px; }
         }
     </style>
 </head>
@@ -275,6 +278,7 @@
         <div class="container">
             <div class="header-inner">
                 <a class="brand" href="#home" aria-label="AmparaSeg - Início">
+                    <img src="imagem/AmparaSeg_idvisual_atual-2026.png" alt="" aria-hidden="true">
                     <div>
                         <strong>AmparaSeg</strong>
                         <span>Corretora de Seguros</span>
