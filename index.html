@@ -1,813 +1,1141 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AmparaSeg | Corretora de Seguros</title>
-    <meta name="description" content="AmparaSeg Corretora de Seguros. Cotação rápida no WhatsApp, atendimento consultivo e suporte no sinistro. Seguro auto, residencial, vida, saúde, empresarial e viagem.">
-    <meta name="theme-color" content="#265A63">
-    <meta property="og:title" content="AmparaSeg | Corretora de Seguros">
-    <meta property="og:description" content="Proteção sob medida com as melhores seguradoras. Cotação rápida no WhatsApp e atendimento consultivo.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="pt_BR">
-    <meta property="og:image" content="imagem/AmparaSeg_idvisual_atual-2026-removebg-preview.png">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23265A63' d='M32 4c10.6 0 20.4 6.1 24.7 15.6c.9 2 .9 4.2 0 6.2C52.4 35.3 42.6 41.4 32 41.4S11.6 35.3 7.3 25.8c-.9-2-.9-4.2 0-6.2C11.6 10.1 21.4 4 32 4Z'/%3E%3Cpath fill='%236CB6B8' d='M12 28.5c4.4 7.7 12.3 12.9 20 12.9S47.6 36.2 52 28.5V49c0 2.6-1.6 5-4 5.8l-14.4 4.8a4.5 4.5 0 0 1-3.2 0L16 54.8c-2.4-.8-4-3.2-4-5.8V28.5Z'/%3E%3C/svg%3E">
-    <style>
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { margin: 0; font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif; color: #0f172a; line-height: 1.6; background: #ffffff; overflow-x: hidden; }
-        img { max-width: 100%; display: block; }
-        a { color: inherit; }
-        :root {
-            --bg: #ffffff;
-            --surface: #ffffff;
-            --muted-surface: #f6f8fa;
-            --text: #0f172a;
-            --muted: #475569;
-            --primary: #265A63;
-            --primary-2: #367c88;
-            --accent: #6CB6B8;
-            --border: rgba(15, 23, 42, 0.10);
-            --shadow: 0 18px 50px rgba(2, 6, 23, 0.12);
-            --shadow-soft: 0 10px 30px rgba(2, 6, 23, 0.08);
-            --radius: 16px;
-            --container: 1180px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AmparaSeg - Corretora de Seguros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .skip-link {
-            position: absolute;
-            top: 8px;
-            left: -999px;
-            background: #111827;
-            color: #fff;
-            padding: 10px 14px;
-            border-radius: 10px;
-            z-index: 9999;
-        }
-        .skip-link:focus { left: 8px; outline: 3px solid rgba(108, 182, 184, 0.65); }
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: #08394a;
+      background: #f4f8f8;
+    }
 
-        .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
-        .section { padding: clamp(56px, 7vw, 96px) 0; }
-        .section-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 28px; }
-        .eyebrow { font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--primary-2); font-size: 12px; }
-        .title { margin: 6px 0 0; font-size: clamp(28px, 3vw, 40px); line-height: 1.15; letter-spacing: -0.02em; color: var(--text); }
-        .subtitle { margin: 10px 0 0; max-width: 66ch; color: var(--muted); font-size: 16px; }
+    html { scroll-behavior: smooth; }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 12px 18px;
-            border-radius: 999px;
-            border: 1px solid transparent;
-            text-decoration: none;
-            font-weight: 700;
-            transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease, border-color 140ms ease, opacity 140ms ease;
-            white-space: nowrap;
-        }
-        .btn:focus-visible { outline: 3px solid rgba(108, 182, 184, 0.65); outline-offset: 2px; }
-        .btn-primary { background: linear-gradient(135deg, var(--accent) 0%, #54aeb0 100%); color: #ffffff; box-shadow: 0 12px 28px rgba(84, 174, 176, 0.35); }
-        .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 16px 34px rgba(84, 174, 176, 0.42); }
-        .btn-ghost { background: rgba(255,255,255,0.10); color: #ffffff; border-color: rgba(255,255,255,0.25); }
-        .btn-ghost:hover { background: rgba(255,255,255,0.16); }
-        .btn-outline { background: transparent; color: var(--primary); border-color: rgba(38, 90, 99, 0.30); }
-        .btn-outline:hover { border-color: rgba(38, 90, 99, 0.55); transform: translateY(-1px); }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        .header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: rgba(255, 255, 255, 0.96);
-            border-bottom: 1px solid var(--border);
-            box-shadow: 0 12px 30px rgba(2, 6, 23, 0.08);
-        }
-        .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; }
-        .brand { display: inline-flex; align-items: center; gap: 0; text-decoration: none; color: var(--text); min-width: 0; }
-        .brand-logo { width: 210px; height: 78px; overflow: hidden; border-radius: 18px; }
-        .brand-logo img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.22); transform-origin: center; filter: drop-shadow(0 12px 22px rgba(2, 6, 23, 0.18)); }
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-        .nav { display: flex; align-items: center; gap: 16px; }
-        .nav-links { display: flex; align-items: center; gap: 18px; list-style: none; margin: 0; padding: 0; }
-        .nav-links a { color: rgba(15, 23, 42, 0.88); text-decoration: none; font-weight: 700; font-size: 14px; opacity: 1; }
-        .nav-links a:hover { color: var(--primary); }
-        .nav-actions { display: flex; align-items: center; gap: 10px; }
-        .header .btn-ghost { background: rgba(38, 90, 99, 0.08); color: var(--primary); border-color: rgba(38, 90, 99, 0.20); }
-        .header .btn-ghost:hover { background: rgba(38, 90, 99, 0.12); }
+    /* Header */
+    .header {
+      min-height: 72px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 54px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+      position: relative;
+      z-index: 10;
+    }
 
-        .menu-btn {
-            display: none;
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            border: 1px solid rgba(38, 90, 99, 0.20);
-            background: rgba(38, 90, 99, 0.06);
-            color: var(--primary);
-            align-items: center;
-            justify-content: center;
-        }
-        .menu-btn:focus-visible { outline: 3px solid rgba(108, 182, 184, 0.65); outline-offset: 2px; }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-        .mobile-menu { display: none; border-top: 1px solid var(--border); background: #ffffff; }
-        .mobile-menu-inner { padding: 10px 0 14px; display: grid; gap: 10px; }
-        .mobile-menu a { color: rgba(15, 23, 42, 0.90); text-decoration: none; font-weight: 750; padding: 12px 14px; border-radius: 12px; background: rgba(15, 23, 42, 0.04); border: 1px solid rgba(15, 23, 42, 0.08); }
+    .brand-logo-wrap {
+      width: 210px;
+      height: 56px;
+      overflow: hidden;
+      display: block;
+    }
 
-        .hero {
-            position: relative;
-            overflow: hidden;
-            background: radial-gradient(1000px 500px at 20% 10%, rgba(108, 182, 184, 0.26), transparent 60%),
-                        radial-gradient(900px 500px at 80% 0%, rgba(54, 124, 136, 0.30), transparent 60%),
-                        linear-gradient(135deg, #12343b 0%, #265a63 45%, #367c88 100%);
-            color: #ffffff;
-        }
-        .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 34px; align-items: center; padding: clamp(68px, 8vw, 108px) 0 clamp(42px, 5vw, 64px); }
-        .hero h1 { margin: 0; font-size: clamp(34px, 4.4vw, 54px); line-height: 1.06; letter-spacing: -0.03em; }
-        .hero p { margin: 14px 0 0; font-size: 17px; color: rgba(255,255,255,0.88); max-width: 62ch; }
-        .hero-bullets { display: grid; gap: 10px; margin: 22px 0 0; padding: 0; list-style: none; }
-        .hero-bullets li { display: flex; gap: 10px; align-items: flex-start; color: rgba(255,255,255,0.90); }
-        .check { width: 22px; height: 22px; flex: 0 0 22px; border-radius: 8px; background: rgba(108, 182, 184, 0.22); border: 1px solid rgba(255,255,255,0.16); display: inline-flex; align-items: center; justify-content: center; }
-        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .brand-logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.15);
+      transform-origin: center;
+      filter: drop-shadow(0 12px 22px rgba(0,0,0,0.12));
+    }
 
-        .hero-card {
-            background: rgba(255,255,255,0.10);
-            border: 1px solid rgba(255,255,255,0.20);
-            border-radius: 18px;
-            padding: 18px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.22);
-            backdrop-filter: blur(12px);
-        }
-        .hero-card h2 { margin: 0; font-size: 18px; letter-spacing: -0.01em; }
-        .hero-card p { margin: 6px 0 0; font-size: 14px; color: rgba(255,255,255,0.82); }
-        .form-grid { display: grid; gap: 12px; margin-top: 14px; }
-        .field { display: grid; gap: 6px; }
-        .label { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.86); }
-        .input, .select, .textarea {
-            width: 100%;
-            background: rgba(255,255,255,0.92);
-            border: 1px solid rgba(15, 23, 42, 0.12);
-            border-radius: 12px;
-            padding: 12px 12px;
-            font-size: 14px;
-            color: #0f172a;
-            outline: none;
-        }
-        .textarea { min-height: 88px; resize: vertical; }
-        .helper { font-size: 12px; color: rgba(255,255,255,0.78); margin-top: 10px; }
+    .brand-text h1 {
+      font-size: 27px;
+      line-height: 26px;
+      font-weight: 800;
+      color: #08394a;
+    }
 
-        .logos {
-            padding: 28px 0;
-            background: linear-gradient(180deg, rgba(246, 248, 250, 1) 0%, rgba(255, 255, 255, 1) 100%);
-            border-bottom: 1px solid var(--border);
-        }
-        .carousel { position: relative; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); }
-        .carousel-track { display: flex; align-items: center; gap: 44px; animation: scroll 34s linear infinite; width: max-content; padding: 10px 0; }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .carousel-track { animation: none; } }
-        .insurer-img { height: 44px; width: auto; object-fit: contain; filter: grayscale(0.05) contrast(1.05); opacity: 0.90; }
-        .insurer-img:hover { opacity: 1; }
-        .hdi-logo { height: 86px; }
-        .suhai-logo { height: 70px; }
+    .brand-text span {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #42a88e;
+      margin-top: 2px;
+    }
 
-        .grid-3 { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .grid-2 { display: grid; gap: 18px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .brand-text small {
+      display: block;
+      color: #08394a;
+      font-size: 9px;
+      margin-top: 2px;
+      letter-spacing: .2px;
+    }
 
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-soft);
-            padding: 18px;
-        }
-        .card h3 { margin: 0; font-size: 16px; letter-spacing: -0.01em; color: var(--text); }
-        .card p { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
-        .icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(108, 182, 184, 0.16);
-            border: 1px solid rgba(108, 182, 184, 0.35);
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-        .muted-surface { background: var(--muted-surface); }
+    .nav {
+      display: flex;
+      gap: 34px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #0b3547;
+      align-items: center;
+    }
 
-        .steps { display: grid; gap: 14px; }
-        .step { display: grid; grid-template-columns: 54px 1fr; gap: 14px; align-items: flex-start; }
-        .step-number { width: 44px; height: 44px; border-radius: 14px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; }
-        .step h3 { margin: 0; font-size: 16px; }
-        .step p { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+    .nav a:first-child {
+      color: #2fa78d;
+    }
 
-        .about { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 22px; align-items: start; }
-        .about-logo { border-radius: 18px; border: 1px solid var(--border); background: #fff; padding: 16px; box-shadow: var(--shadow-soft); display: flex; align-items: center; justify-content: center; min-height: 240px; }
-        .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-        .pill { display: inline-flex; align-items: center; gap: 8px; padding: 9px 12px; border-radius: 999px; border: 1px solid rgba(38, 90, 99, 0.20); background: rgba(38, 90, 99, 0.05); color: var(--primary); font-weight: 700; font-size: 13px; }
+    section { scroll-margin-top: 100px; }
 
-        details { border: 1px solid var(--border); border-radius: 14px; background: #fff; box-shadow: var(--shadow-soft); }
-        summary { cursor: pointer; list-style: none; padding: 14px 14px; font-weight: 800; color: var(--text); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-        summary::-webkit-details-marker { display: none; }
-        details[open] summary { border-bottom: 1px solid var(--border); }
-        .faq-body { padding: 0 14px 14px; color: var(--muted); font-size: 14px; }
-        .chev { width: 18px; height: 18px; opacity: 0.7; transition: transform 140ms ease; }
-        details[open] .chev { transform: rotate(180deg); }
+    .mobile-nav {
+      display: none;
+      position: relative;
+    }
 
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
-        .contact-list { display: grid; gap: 10px; margin-top: 12px; }
-        .contact-item { display: flex; gap: 12px; align-items: flex-start; padding: 12px; border-radius: 14px; border: 1px solid var(--border); background: #fff; box-shadow: var(--shadow-soft); }
-        .contact-item > * { min-width: 0; }
-        .contact-item strong { display: block; font-size: 14px; }
-        .contact-item span { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; word-break: break-word; }
-        .contact-item a { color: var(--primary); text-decoration: none; font-weight: 800; }
+    .menu-toggle {
+      list-style: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid rgba(8, 57, 74, 0.14);
+      background: #ffffff;
+      color: #08394a;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      font-weight: 900;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      user-select: none;
+    }
 
-        .footer { background: #0b1f24; color: rgba(255,255,255,0.88); }
-        .footer-inner { padding: 36px 0; display: grid; gap: 14px; }
-        .footer-top { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between; }
-        .footer-links { display: flex; flex-wrap: wrap; gap: 14px; }
-        .footer-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 700; font-size: 13px; }
-        .footer small { color: rgba(255,255,255,0.70); }
+    .menu-toggle::-webkit-details-marker { display: none; }
 
-        .wa-fab {
-            position: fixed;
-            right: 18px;
-            bottom: 18px;
-            z-index: 70;
-            width: 56px;
-            height: 56px;
-            border-radius: 18px;
-            background: #25d366;
-            box-shadow: 0 18px 40px rgba(0,0,0,0.25);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            border: 1px solid rgba(255,255,255,0.30);
-        }
-        .wa-fab:focus-visible { outline: 3px solid rgba(37, 211, 102, 0.55); outline-offset: 2px; }
-        .wa-fab svg { width: 28px; height: 28px; fill: #ffffff; }
+    .mobile-nav-panel {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 10px);
+      width: min(320px, calc(100vw - 36px));
+      background: #ffffff;
+      border: 1px solid rgba(8, 57, 74, 0.10);
+      border-radius: 14px;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+      display: grid;
+    }
 
-        @media (max-width: 980px) {
-            .hero-grid { grid-template-columns: 1fr; }
-            .grid-3 { grid-template-columns: 1fr; }
-            .grid-2 { grid-template-columns: 1fr; }
-            .about { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 860px) {
-            .nav-links { display: none; }
-            .menu-btn { display: inline-flex; }
-            .mobile-menu[data-open="true"] { display: block; }
-        }
-        @media (max-width: 520px) {
-            .header-inner { flex-wrap: wrap; }
-            .nav { width: 100%; justify-content: flex-end; }
-            .nav-actions { flex-wrap: wrap; justify-content: flex-end; }
-            .nav-actions .btn-ghost { display: none; }
-            .section-header { flex-direction: column; align-items: flex-start; }
-            .btn { padding: 11px 14px; font-size: 13px; }
-            .brand-logo { width: 176px; height: 66px; border-radius: 18px; }
-            .brand-logo img { transform: scale(1.26); }
-        }
-    </style>
+    .mobile-nav-panel a {
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 800;
+      color: #08394a;
+      border-bottom: 1px solid rgba(8, 57, 74, 0.08);
+    }
+
+    .mobile-nav-panel a:last-child { border-bottom: none; }
+
+    .mobile-nav-panel .mobile-cta {
+      background: #2c967e;
+      color: #ffffff;
+      border-bottom: none;
+    }
+
+    .whatsapp-btn,
+    .primary-btn,
+    .small-cta {
+      background: #2c967e;
+      color: white;
+      border-radius: 12px;
+      border: 0;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      box-shadow: 0 8px 18px rgba(44, 150, 126, .18);
+    }
+
+    .whatsapp-btn {
+      height: 42px;
+      padding: 0 18px;
+      font-size: 13px;
+    }
+
+    .primary-btn {
+      height: 58px;
+      padding: 0 34px;
+      font-size: 18px;
+      border-radius: 14px;
+      margin-top: 30px;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 562px;
+      background: url('imagem/Seguro-Familia.jpg') center right / cover no-repeat;
+      position: relative;
+      padding: 0 0 120px 57px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 600px;
+      padding-top: 15px;
+      padding-bottom: 110px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: #2a9b84;
+      font-size: 14px;
+      letter-spacing: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow::after {
+      content: '';
+      display: block;
+      width: 230px;
+      height: 1px;
+      background: #d4dedf;
+    }
+
+    .hero h2 {
+      font-size: 55px;
+      line-height: 1.08;
+      letter-spacing: -1.6px;
+      color: #06384b;
+      margin-bottom: 24px;
+      font-weight: 800;
+    }
+
+    .hero h2 span {
+      display: block;
+      color: #2e9a83;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.65;
+      color: #17394a;
+      max-width: 490px;
+      font-weight: 500;
+    }
+
+    .features {
+      display: flex;
+      position: absolute;
+      bottom: 25px;
+      left: 57px;
+      background: rgba(255,255,255,.82);
+      border-radius: 12px;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .feature {
+      width: 170px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 22px;
+      border-right: 1px solid #ccd8da;
+      font-size: 12px;
+      font-weight: 800;
+      color: #0a3548;
+    }
+
+    .feature:last-child { border-right: none; }
+
+    .icon-line {
+      width: 28px;
+      height: 28px;
+      border: 3px solid #2a8e7b;
+      border-radius: 9px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .icon-line::after {
+      content: '✓';
+      position: absolute;
+      inset: -5px 0 0 6px;
+      color: #2a8e7b;
+      font-weight: 900;
+      font-size: 17px;
+    }
+
+    /* Services */
+    .services {
+      padding: 36px 66px 48px;
+      background: #f4f8f8;
+      text-align: center;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      letter-spacing: 7px;
+      color: #2d987f;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 35px;
+      line-height: 1.15;
+      color: #06384b;
+      font-weight: 800;
+      margin-bottom: 25px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      max-width: 1210px;
+      margin: 0 auto;
+    }
+
+    .card {
+      min-height: 238px;
+      background: white;
+      border-radius: 13px;
+      box-shadow: 0 12px 28px rgba(18, 70, 79, .10);
+      padding: 28px 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card .big-icon {
+      font-size: 45px;
+      color: #2e9a83;
+      line-height: 1;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      color: #08394a;
+      margin-top: 10px;
+      font-weight: 800;
+    }
+
+    .card p {
+      font-size: 12px;
+      line-height: 1.55;
+      color: #314d59;
+      margin: 12px 0 16px;
+      font-weight: 500;
+    }
+
+    .card a {
+      color: #2d987f;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .all-btn {
+      width: 235px;
+      height: 37px;
+      border-radius: 18px;
+      background: #006178;
+      color: white;
+      border: 0;
+      margin-top: -5px;
+      font-weight: 800;
+      font-size: 13px;
+      position: relative;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Cotação */
+    .cotacao {
+      padding: 56px 66px 66px;
+      background: #ffffff;
+    }
+
+    .cotacao-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      max-width: 1210px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .cotacao-info,
+    .cotacao-form {
+      background: #f4f8f8;
+      border-radius: 14px;
+      box-shadow: 0 12px 28px rgba(18, 70, 79, .10);
+      padding: 28px 26px;
+      border: 1px solid rgba(8, 57, 74, 0.08);
+    }
+
+    .cotacao-info h3,
+    .cotacao-form h3 {
+      font-size: 18px;
+      color: #08394a;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .cotacao-info p,
+    .cotacao-form p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #314d59;
+      font-weight: 500;
+    }
+
+    .cotacao-list {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .cotacao-list li {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 13px;
+      color: #0a3548;
+      font-weight: 700;
+    }
+
+    .cotacao-list li::before {
+      content: "✓";
+      width: 22px;
+      height: 22px;
+      border-radius: 8px;
+      background: rgba(44, 150, 126, .12);
+      border: 1px solid rgba(44, 150, 126, .25);
+      color: #2c967e;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      flex: 0 0 22px;
+      margin-top: 1px;
+    }
+
+    .form-grid {
+      margin-top: 14px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .form-grid label {
+      display: grid;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #08394a;
+    }
+
+    .form-grid input,
+    .form-grid select,
+    .form-grid textarea {
+      width: 100%;
+      border: 1px solid rgba(8, 57, 74, 0.14);
+      border-radius: 12px;
+      padding: 12px 12px;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      background: #ffffff;
+      color: #08394a;
+    }
+
+    .form-grid textarea { min-height: 98px; resize: vertical; }
+
+    .form-helper {
+      font-size: 12px;
+      color: #425d66;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .submit-btn {
+      height: 48px;
+      border-radius: 12px;
+      background: #2c967e;
+      color: #ffffff;
+      border: 0;
+      font-weight: 900;
+      font-size: 14px;
+      box-shadow: 0 10px 22px rgba(44, 150, 126, .22);
+      cursor: pointer;
+    }
+
+    /* Contato */
+    .contact {
+      background: #f4f8f8;
+      padding: 56px 66px 64px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      max-width: 1210px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .contact-card {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 12px 28px rgba(18, 70, 79, .10);
+      padding: 26px 24px;
+      border: 1px solid rgba(8, 57, 74, 0.08);
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px 14px;
+      border-radius: 14px;
+      background: #ffffff;
+      border: 1px solid rgba(8, 57, 74, 0.08);
+      box-shadow: 0 10px 24px rgba(2, 6, 23, 0.06);
+    }
+
+    .contact-item + .contact-item { margin-top: 12px; }
+
+    .contact-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: rgba(44, 150, 126, .12);
+      border: 1px solid rgba(44, 150, 126, .25);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      color: #2c967e;
+      flex: 0 0 44px;
+    }
+
+    .contact-item strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 900;
+      color: #08394a;
+      margin-bottom: 3px;
+    }
+
+    .contact-item span {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #314d59;
+      line-height: 1.45;
+      word-break: break-word;
+    }
+
+    /* About */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1.13fr;
+      background: white;
+    }
+
+    .about-img {
+      min-height: 308px;
+      background: url('https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&w=900&q=80') center / cover no-repeat;
+    }
+
+    .about-content {
+      padding: 42px 65px 30px 50px;
+    }
+
+    .about-content .section-kicker {
+      margin-bottom: 8px;
+      text-align: left;
+    }
+
+    .about h2 {
+      font-size: 33px;
+      line-height: 1.08;
+      color: #07384b;
+      font-weight: 800;
+      max-width: 560px;
+      margin-bottom: 16px;
+    }
+
+    .about p {
+      font-size: 15px;
+      line-height: 1.55;
+      color: #17394a;
+      max-width: 600px;
+      font-weight: 500;
+    }
+
+    /* Insurers */
+    .insurers {
+      background: #ffffff;
+      color: #08394a;
+      padding: 30px 70px 34px;
+      text-align: center;
+      border-top: 1px solid rgba(8, 57, 74, 0.08);
+      border-bottom: 1px solid rgba(8, 57, 74, 0.08);
+    }
+
+    .insurers h4 {
+      font-size: 11px;
+      letter-spacing: 7px;
+      font-weight: 800;
+      color: #2d987f;
+      margin-bottom: 24px;
+    }
+
+    .insurers-carousel {
+      position: relative;
+      overflow: hidden;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 10px 0;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .insurers-track {
+      display: flex;
+      align-items: center;
+      gap: 44px;
+      width: max-content;
+      animation: insurers-scroll 30s linear infinite;
+    }
+
+    .insurer-logo {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(0.05) contrast(1.06);
+      opacity: 0.92;
+    }
+
+    .insurer-logo:hover { opacity: 1; }
+
+    @keyframes insurers-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .insurers-track { animation: none; }
+    }
+
+    /* Footer */
+    .footer {
+      background: #003b50;
+      color: white;
+      padding: 34px 65px 18px;
+    }
+
+    .footer-logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,.94);
+      border-radius: 14px;
+      padding: 10px 12px;
+      box-shadow: 0 12px 26px rgba(0,0,0,.18);
+    }
+
+    .footer-logo-img {
+      width: 170px;
+      height: 58px;
+      object-fit: contain;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1.25fr 1.4fr;
+      gap: 34px;
+      max-width: 1210px;
+      margin: 0 auto;
+    }
+
+    .footer .brand-text h1,
+    .footer .brand-text small { color: white; }
+
+    .footer p {
+      font-size: 12px;
+      line-height: 1.7;
+      color: #d5e7e8;
+      margin: 18px 0;
+      max-width: 250px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 18px;
+      font-weight: 800;
+    }
+
+    .footer-col {
+      border-left: 1px solid rgba(255,255,255,.14);
+      padding-left: 28px;
+    }
+
+    .footer h4 {
+      color: #d9eeee;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 18px;
+      font-weight: 800;
+    }
+
+    .footer li {
+      list-style: none;
+      color: #d7e5e6;
+      font-size: 12px;
+      margin-bottom: 9px;
+      font-weight: 500;
+    }
+
+    .footer .small-cta {
+      height: 48px;
+      padding: 0 22px;
+      margin-top: 14px;
+      border-radius: 10px;
+      font-size: 13px;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.12);
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 17px;
+      color: #c8dddf;
+      font-size: 11px;
+    }
+
+    @media (max-width: 1200px) {
+      .header { padding: 0 28px; }
+      .services { padding: 34px 28px 46px; }
+      .cards { grid-template-columns: repeat(3, 1fr); }
+      .insurers { padding: 28px 28px 30px; }
+      .footer { padding: 34px 28px 18px; }
+      .footer-grid { grid-template-columns: 1.6fr 1fr 1fr; }
+      .footer-col { border-left: none; padding-left: 0; }
+    }
+
+    @media (max-width: 980px) {
+      .header { padding: 12px 18px; gap: 14px; }
+      .brand-text h1 { font-size: 22px; line-height: 22px; }
+      .brand-logo-wrap { width: 190px; height: 52px; }
+      .brand-logo-img { transform: scale(1.16); }
+      .nav { display: none; }
+      .whatsapp-btn { display: none; }
+      .mobile-nav { display: block; }
+
+      .hero { min-height: 540px; padding: 42px 18px 0; align-items: flex-start; background: url('imagem/Seguro-Familia.jpg') center / cover no-repeat; }
+      .hero-content { padding-top: 0; }
+      .eyebrow { font-size: 12px; letter-spacing: 6px; margin-bottom: 18px; }
+      .eyebrow::after { width: 150px; }
+      .hero h2 { font-size: 40px; }
+      .hero p { font-size: 16px; }
+
+      .features { position: static; margin-top: 24px; left: auto; bottom: auto; background: transparent; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .feature { width: auto; border-right: none; border: 1px solid #dbe7e8; border-radius: 12px; background: rgba(255,255,255,.86); }
+
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .cotacao { padding: 46px 18px 56px; }
+      .cotacao-grid { grid-template-columns: 1fr; }
+      .contact { padding: 46px 18px 56px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .about { grid-template-columns: 1fr; }
+      .about-content { padding: 32px 18px 26px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer p { max-width: none; }
+    }
+
+
+    @media (max-width: 560px) {
+      .header { padding: 10px 14px; }
+      .brand-text span { font-size: 11px; }
+      .brand-text small { display: none; }
+      .header { min-height: 68px; }
+      .brand-logo-wrap { width: 164px; height: 44px; }
+      .brand-logo-img { transform: scale(1.14); }
+
+      .hero { min-height: 520px; }
+      .hero h2 { font-size: 34px; }
+      .primary-btn { width: 100%; padding: 0 18px; font-size: 16px; }
+
+      .features { grid-template-columns: 1fr; }
+      .feature { padding: 14px 16px; }
+
+      .services { padding: 28px 14px 40px; }
+      .section-title { font-size: 28px; }
+      .cards { grid-template-columns: 1fr; }
+      .all-btn { width: 100%; }
+      .cotacao { padding: 40px 14px 50px; }
+      .contact { padding: 40px 14px 50px; }
+      .insurers { padding: 24px 14px 28px; }
+      .insurer-logo { height: 38px; }
+    }
+  </style>
 </head>
 <body>
-    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="page">
+    <header class="header">
+      <a class="brand" href="#inicio" aria-label="AmparaSeg - Início">
+        <span class="brand-logo-wrap">
+          <img class="brand-logo-img" src="imagem/AmparaSeg_idvisual_atual-2026-removebg-preview.png" alt="AmparaSeg">
+        </span>
+      </a>
 
-    <header class="header" role="banner">
-        <div class="container">
-            <div class="header-inner">
-                <a class="brand" href="#home" aria-label="AmparaSeg - Início">
-                    <span class="brand-logo">
-                        <img src="imagem/AmparaSeg_idvisual_atual-2026-removebg-preview.png" alt="AmparaSeg">
-                    </span>
-                </a>
+      <nav class="nav">
+        <a href="#inicio">Início</a>
+        <a href="#seguros">Seguros</a>
+        <a href="#seguros">Empresas</a>
+        <a href="#cotacao">Cotação</a>
+        <a href="#sobre">Sobre Nós</a>
+        <a href="#contato">Contato</a>
+      </nav>
 
-                <nav class="nav" aria-label="Navegação principal">
-                    <ul class="nav-links">
-                        <li><a href="#seguros">Seguros</a></li>
-                        <li><a href="#como-funciona">Como funciona</a></li>
-                        <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="#faq">Dúvidas</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
+      <a class="whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/558881155384?text=Olá,%20gostaria%20de%20fazer%20uma%20cotação%20de%20seguro.">☏ Fale no WhatsApp</a>
 
-                    <div class="nav-actions">
-                        <a class="btn btn-ghost" href="#cotacao">Fazer cotação</a>
-                        <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/558881155384?text=Olá,%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.">WhatsApp</a>
-                        <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menu">
-                            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill="currentColor" d="M4 6h16v2H4V6Zm0 5h16v2H4v-2Zm0 5h16v2H4v-2Z"/>
-                            </svg>
-                        </button>
-                    </div>
-                </nav>
-            </div>
-
-            <div class="mobile-menu" id="mobileMenu" data-open="false">
-                <div class="mobile-menu-inner">
-                    <a href="#seguros">Seguros</a>
-                    <a href="#como-funciona">Como funciona</a>
-                    <a href="#sobre">Sobre</a>
-                    <a href="#faq">Dúvidas</a>
-                    <a href="#contato">Contato</a>
-                </div>
-            </div>
+      <details class="mobile-nav">
+        <summary class="menu-toggle" aria-label="Abrir menu">☰</summary>
+        <div class="mobile-nav-panel">
+          <a href="#inicio">Início</a>
+          <a href="#seguros">Seguros</a>
+          <a href="#seguros">Empresas</a>
+          <a href="#cotacao">Cotação</a>
+          <a href="#sobre">Sobre Nós</a>
+          <a href="#contato">Contato</a>
+          <a class="mobile-cta" target="_blank" rel="noopener" href="https://wa.me/558881155384?text=Olá,%20gostaria%20de%20fazer%20uma%20cotação%20de%20seguro.">☏ Fale no WhatsApp</a>
         </div>
+      </details>
     </header>
 
-    <main id="conteudo">
-        <section class="hero" id="home">
-            <div class="container">
-                <div class="hero-grid">
-                    <div>
-                        <p class="eyebrow">Proteção com clareza</p>
-                        <h1>Seguro sob medida, com atendimento humano e foco no que importa.</h1>
-                        <p>Na AmparaSeg, você recebe orientação consultiva para escolher coberturas coerentes com seu perfil, além de suporte na contratação e no sinistro.</p>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <div class="eyebrow">Corretora de Seguros</div>
+        <h2>Seguro que acolhe.<span>Proteção que resolve.</span></h2>
+        <p>Na AmparaSeg, você encontra os melhores seguros para o que realmente importa: você, sua família e seu patrimônio.</p>
+        <a class="primary-btn" href="#cotacao">▱ Solicitar Cotação</a>
+      </div>
 
-                        <ul class="hero-bullets" aria-label="Diferenciais">
-                            <li><span class="check" aria-hidden="true">
-                                <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ffffff" d="m9 16.2l-3.5-3.5L4 14.2l5 5 12-12-1.5-1.5z"/></svg>
-                            </span>Comparação entre seguradoras e coberturas.</li>
-                            <li><span class="check" aria-hidden="true">
-                                <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ffffff" d="m9 16.2l-3.5-3.5L4 14.2l5 5 12-12-1.5-1.5z"/></svg>
-                            </span>Agilidade na cotação e acompanhamento do início ao fim.</li>
-                            <li><span class="check" aria-hidden="true">
-                                <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ffffff" d="m9 16.2l-3.5-3.5L4 14.2l5 5 12-12-1.5-1.5z"/></svg>
-                            </span>Suporte no sinistro e renovação sem dor de cabeça.</li>
-                        </ul>
+      <div class="features">
+        <div class="feature"><span class="icon-line"></span>Atendimento<br>Humanizado</div>
+        <div class="feature"><span class="icon-line"></span>Soluções<br>Personalizadas</div>
+        <div class="feature"><span class="icon-line"></span>As Melhores<br>Seguradoras</div>
+      </div>
+    </section>
 
-                        <div class="hero-actions">
-                            <a class="btn btn-primary" href="#cotacao">Solicitar cotação</a>
-                            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://wa.me/558881155384?text=Olá,%20quero%20tirar%20uma%20d%C3%BAvida%20sobre%20seguro.">Tirar dúvidas</a>
-                        </div>
-                    </div>
+    <section class="services" id="seguros">
+      <div class="section-kicker">Soluções completas para você</div>
+      <h2 class="section-title">Seguros para todas as fases da vida</h2>
 
-                    <div class="hero-card" id="cotacao">
-                        <h2>Cotação rápida no WhatsApp</h2>
-                        <p>Preencha os dados e envie. Resposta no mesmo canal.</p>
+      <div class="cards">
+        <article class="card">
+          <div class="big-icon">▱</div>
+          <h3>Seguro Auto</h3>
+          <p>Proteção completa para seu veículo com assistência 24h e diversos benefícios.</p>
+          <a href="#cotacao">Saiba mais ›</a>
+        </article>
+        <article class="card">
+          <div class="big-icon">⌂</div>
+          <h3>Seguro Residencial</h3>
+          <p>Tranquilidade para você e sua família. Proteção para sua casa e seus bens.</p>
+          <a href="#cotacao">Saiba mais ›</a>
+        </article>
+        <article class="card">
+          <div class="big-icon">♡</div>
+          <h3>Seguro Saúde</h3>
+          <p>Mais que um seguro, cuidado com a saúde de quem você ama.</p>
+          <a href="#cotacao">Saiba mais ›</a>
+        </article>
+        <article class="card">
+          <div class="big-icon">♙</div>
+          <h3>Seguro de Vida</h3>
+          <p>Proteção financeira para sua família hoje e amanhã.</p>
+          <a href="#cotacao">Saiba mais ›</a>
+        </article>
+        <article class="card">
+          <div class="big-icon">▣</div>
+          <h3>Seguro Empresarial</h3>
+          <p>Soluções completas para proteger sua empresa, negócio e colaboradores.</p>
+          <a href="#cotacao">Saiba mais ›</a>
+        </article>
+      </div>
+      <a class="all-btn" href="#cotacao">Ver todos os seguros</a>
+    </section>
 
-                        <form class="form-grid" id="quoteForm">
-                            <div class="field">
-                                <label class="label" for="nome">Nome</label>
-                                <input class="input" id="nome" name="nome" autocomplete="name" placeholder="Seu nome" required>
-                            </div>
+    <section class="cotacao" id="cotacao">
+      <div class="section-kicker">Cotação online</div>
+      <h2 class="section-title">Solicite uma cotação pelo WhatsApp</h2>
 
-                            <div class="field">
-                                <label class="label" for="whats">WhatsApp</label>
-                                <input class="input" id="whats" name="whats" inputmode="tel" autocomplete="tel" placeholder="(DDD) 00000-0000" required>
-                            </div>
-
-                            <div class="field">
-                                <label class="label" for="tipo">Tipo de seguro</label>
-                                <select class="select" id="tipo" name="tipo" required>
-                                    <option value="" selected disabled>Selecione</option>
-                                    <option>Automóvel</option>
-                                    <option>Motocicleta</option>
-                                    <option>Residencial</option>
-                                    <option>Vida</option>
-                                    <option>Saúde</option>
-                                    <option>Empresarial</option>
-                                    <option>Transporte</option>
-                                    <option>Garantia</option>
-                                    <option>Viagem</option>
-                                    <option>Outros</option>
-                                </select>
-                            </div>
-
-                            <div class="field">
-                                <label class="label" for="mensagem">Detalhes (opcional)</label>
-                                <textarea class="textarea" id="mensagem" name="mensagem" placeholder="Ex.: ano/modelo, cidade, perfil, necessidades, etc."></textarea>
-                            </div>
-
-                            <button class="btn btn-primary" type="submit">Enviar no WhatsApp</button>
-                            <div class="helper">Ao enviar, você será direcionado para o WhatsApp com a mensagem pronta.</div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="logos" aria-label="Seguradoras parceiras">
-            <div class="container">
-                <div class="carousel">
-                    <div class="carousel-track" aria-hidden="true">
-                        <img src="imagem/Allianz.png" alt="" class="insurer-img">
-                        <img src="imagem/hdi-seguros.png" alt="" class="insurer-img hdi-logo">
-                        <img src="imagem/Porto_2022.svg.png" alt="" class="insurer-img">
-                        <img src="imagem/azul.png" alt="" class="insurer-img">
-                        <img src="imagem/Itau-Seguros-Logo-Vector.svg-.png" alt="" class="insurer-img">
-                        <img src="imagem/mapfre.jpg" alt="" class="insurer-img">
-                        <img src="imagem/TOKIO-MARINE.jpg" alt="" class="insurer-img">
-                        <img src="imagem/bradesco-seguros-logo-3-1.png" alt="" class="insurer-img">
-                        <img src="imagem/Logo_Sul_América_2015.jpg" alt="" class="insurer-img">
-                        <img src="imagem/SUHAI-SEGURADORA-LOGO-1.png" alt="" class="insurer-img suhai-logo">
-                        <img src="imagem/darwin.png" alt="" class="insurer-img">
-                        <img src="imagem/Yelum.png" alt="" class="insurer-img">
-                        <img src="imagem/aliro-seguro.png" alt="" class="insurer-img">
-                        <img src="imagem/Allianz.png" alt="" class="insurer-img">
-                        <img src="imagem/hdi-seguros.png" alt="" class="insurer-img hdi-logo">
-                        <img src="imagem/Porto_2022.svg.png" alt="" class="insurer-img">
-                        <img src="imagem/azul.png" alt="" class="insurer-img">
-                        <img src="imagem/Itau-Seguros-Logo-Vector.svg-.png" alt="" class="insurer-img">
-                        <img src="imagem/mapfre.jpg" alt="" class="insurer-img">
-                        <img src="imagem/TOKIO-MARINE.jpg" alt="" class="insurer-img">
-                        <img src="imagem/bradesco-seguros-logo-3-1.png" alt="" class="insurer-img">
-                        <img src="imagem/Logo_Sul_América_2015.jpg" alt="" class="insurer-img">
-                        <img src="imagem/SUHAI-SEGURADORA-LOGO-1.png" alt="" class="insurer-img suhai-logo">
-                        <img src="imagem/darwin.png" alt="" class="insurer-img">
-                        <img src="imagem/Yelum.png" alt="" class="insurer-img">
-                        <img src="imagem/aliro-seguro.png" alt="" class="insurer-img">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="seguros">
-            <div class="container">
-                <div class="section-header">
-                    <div>
-                        <p class="eyebrow">Soluções</p>
-                        <h2 class="title">Seguros para pessoas e empresas</h2>
-                        <p class="subtitle">Escolha o tipo de proteção e conte com uma corretora para orientar, comparar e acompanhar todo o processo.</p>
-                    </div>
-                    <a class="btn btn-outline" href="#contato">Falar com especialista</a>
-                </div>
-
-                <div class="grid-3">
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M5 11l1-3h12l1 3v8a2 2 0 0 1-2 2h-1a1 1 0 0 1-1-1v-1H9v1a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-8Zm2.5 3a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3Zm9 0a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3Z"/></svg>
-                        </div>
-                        <h3>Auto e Moto</h3>
-                        <p>Coberturas contra colisão, roubo e furto, terceiros e assistências. Ajuste do seguro ao seu perfil de uso.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8Z"/></svg>
-                        </div>
-                        <h3>Residencial</h3>
-                        <p>Proteção do imóvel e conteúdo com opções de assistência (elétrica, hidráulica, chaveiro) conforme plano.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10Z"/></svg>
-                        </div>
-                        <h3>Vida</h3>
-                        <p>Proteções para momentos imprevistos com orientações claras sobre coberturas, assistências e beneficiários.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Zm-7 16H7v-2h5v2Zm5-4H7v-2h10v2Zm0-4H7V9h10v2Z"/></svg>
-                        </div>
-                        <h3>Saúde</h3>
-                        <p>Planos e redes com análise de carências, regras e necessidades. Ajuda para escolher o que faz sentido.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M4 20V8l8-5l8 5v12h-5v-6H9v6H4Z"/></svg>
-                        </div>
-                        <h3>Empresarial</h3>
-                        <p>Proteção do patrimônio e responsabilidade conforme operação: riscos, equipamentos, condomínio e mais.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M2 16l20-7l-7 20l-3-8l-8-3Z"/></svg>
-                        </div>
-                        <h3>Viagem</h3>
-                        <p>Cobertura para emergências médicas, bagagem e imprevistos com orientação para o seu destino e período.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M3 7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1h2.1a2 2 0 0 1 1.7.9l1.8 2.7c.3.5.4 1 .4 1.6V17a2 2 0 0 1-2 2h-1.1a3 3 0 0 1-5.8 0H9.9a3 3 0 0 1-5.8 0H3a2 2 0 0 1-2-2V7Zm2 0v10h.4a3 3 0 0 1 5.2 0H16V7H5Zm12 3v7h1.1a3 3 0 0 1 5.2 0H23v-3.2c0-.2-.1-.4-.2-.5L21 10h-4Zm-9 9a1 1 0 1 0 0 2a1 1 0 0 0 0-2Zm12 0a1 1 0 1 0 0 2a1 1 0 0 0 0-2Z"/></svg>
-                        </div>
-                        <h3>Transporte</h3>
-                        <p>Cobertura para cargas e mercadorias durante o transporte, com opções conforme rota, modal e tipo de operação.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l7 4v6c0 5-3 9-7 10c-4-1-7-5-7-10V6l7-4Zm0 2.3L7 6.9v5.3c0 4 2.2 7.3 5 8.5c2.8-1.2 5-4.5 5-8.5V6.9l-5-2.6Zm-1.2 11.3l5.8-5.8l-1.4-1.4l-4.4 4.4l-2-2L7.4 12l3.4 3.6Z"/></svg>
-                        </div>
-                        <h3>Garantia</h3>
-                        <p>Garantia para contratos e obrigações (licitações, obras e fornecimentos), ajudando a reduzir exigências de caução e fiança.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section muted-surface" id="como-funciona">
-            <div class="container">
-                <div class="section-header">
-                    <div>
-                        <p class="eyebrow">Processo</p>
-                        <h2 class="title">Como contratar com a AmparaSeg</h2>
-                        <p class="subtitle">Um fluxo simples para você entender, comparar e contratar com tranquilidade.</p>
-                    </div>
-                </div>
-
-                <div class="grid-2">
-                    <div class="card">
-                        <div class="steps">
-                            <div class="step">
-                                <div class="step-number">1</div>
-                                <div>
-                                    <h3>Você conta o que precisa</h3>
-                                    <p>Seu perfil, objetivo e preferências. Aqui a gente traduz o “segurês” sem complicar.</p>
-                                </div>
-                            </div>
-                            <div class="step">
-                                <div class="step-number">2</div>
-                                <div>
-                                    <h3>Comparamos opções</h3>
-                                    <p>Selecionamos alternativas coerentes e explicamos diferenças de cobertura e franquia.</p>
-                                </div>
-                            </div>
-                            <div class="step">
-                                <div class="step-number">3</div>
-                                <div>
-                                    <h3>Você escolhe com segurança</h3>
-                                    <p>Ajudamos a tomar decisão com clareza, sem pressão e com foco no custo-benefício.</p>
-                                </div>
-                            </div>
-                            <div class="step">
-                                <div class="step-number">4</div>
-                                <div>
-                                    <h3>Suporte contínuo</h3>
-                                    <p>Renovações, endossos e sinistros com acompanhamento, para você não ficar sozinho.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <h3>Atendimento rápido no WhatsApp</h3>
-                        <p>Use a cotação do topo do site ou clique no botão para iniciar uma conversa. Se preferir, envie só o essencial: tipo de seguro + cidade + detalhes principais.</p>
-                        <div style="margin-top: 14px; display: flex; flex-wrap: wrap; gap: 10px;">
-                            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/558881155384?text=Olá,%20quero%20fazer%20uma%20cota%C3%A7%C3%A3o.%20Tipo%20de%20seguro:%20">Iniciar no WhatsApp</a>
-                            <a class="btn btn-outline" href="#faq">Ver dúvidas frequentes</a>
-                        </div>
-                        <div class="pill-row" aria-label="Diferenciais de atendimento">
-                            <span class="pill">Orientação consultiva</span>
-                            <span class="pill">Comparação clara</span>
-                            <span class="pill">Apoio no sinistro</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="sobre">
-            <div class="container">
-                <div class="section-header">
-                    <div>
-                        <p class="eyebrow">Sobre</p>
-                        <h2 class="title">Corretagem com transparência</h2>
-                        <p class="subtitle">Atuamos com foco em atendimento, clareza e adequação de coberturas ao seu momento. O objetivo é você contratar bem — sem surpresas.</p>
-                    </div>
-                </div>
-
-                <div class="about">
-                    <div>
-                        <div class="grid-2">
-                            <div class="card">
-                                <h3>Consultoria e explicação</h3>
-                                <p>Você entende o que está contratando, com linguagem simples e comparativos objetivos.</p>
-                            </div>
-                            <div class="card">
-                                <h3>Foco no seu perfil</h3>
-                                <p>O seguro ideal muda conforme uso, região e prioridades. A escolha não precisa ser no “achismo”.</p>
-                            </div>
-                        </div>
-                        <div class="grid-2" style="margin-top: 16px;">
-                            <div class="card">
-                                <h3>Atendimento contínuo</h3>
-                                <p>Renovação, alterações de apólice e dúvidas do dia a dia com acompanhamento.</p>
-                            </div>
-                            <div class="card">
-                                <h3>Suporte no sinistro</h3>
-                                <p>Apoio na abertura e no acompanhamento do processo, sempre que necessário.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="about-logo" aria-label="Identidade visual AmparaSeg">
-                        <img src="imagem/AmparaSeg_idvisual_atual-2026-removebg-preview.png" alt="Logo AmparaSeg">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section muted-surface" id="faq">
-            <div class="container">
-                <div class="section-header">
-                    <div>
-                        <p class="eyebrow">Dúvidas</p>
-                        <h2 class="title">Perguntas frequentes</h2>
-                        <p class="subtitle">Respostas diretas para as dúvidas mais comuns antes de contratar.</p>
-                    </div>
-                </div>
-
-                <div class="grid-2">
-                    <div style="display: grid; gap: 12px;">
-                        <details>
-                            <summary>Quanto tempo leva para receber a cotação?
-                                <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5l5-5H7Z"/></svg>
-                            </summary>
-                            <div class="faq-body">Depende do tipo de seguro e dos dados disponíveis. Em geral, com informações básicas já dá para iniciar a comparação e evoluir para a melhor proposta.</div>
-                        </details>
-                        <details>
-                            <summary>Vocês atendem só na minha cidade?
-                                <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5l5-5H7Z"/></svg>
-                            </summary>
-                            <div class="faq-body">Atendemos de forma digital pelo WhatsApp e outros canais. Informe sua cidade e o tipo de seguro para orientarmos o melhor caminho.</div>
-                        </details>
-                        <details>
-                            <summary>O que preciso para cotar seguro auto?
-                                <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5l5-5H7Z"/></svg>
-                            </summary>
-                            <div class="faq-body">Normalmente: dados do condutor principal, CEP de pernoite, uso do veículo e informações do carro (ano/modelo). Se não tiver tudo, pode enviar o que tiver e seguimos por etapas.</div>
-                        </details>
-                    </div>
-
-                    <div style="display: grid; gap: 12px;">
-                        <details>
-                            <summary>Posso contratar sem falar ao telefone?
-                                <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5l5-5H7Z"/></svg>
-                            </summary>
-                            <div class="faq-body">Sim. O atendimento pode ser feito pelo WhatsApp. Se você preferir, também podemos agendar uma ligação.</div>
-                        </details>
-                        <details>
-                            <summary>Vocês ajudam no sinistro?
-                                <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5l5-5H7Z"/></svg>
-                            </summary>
-                            <div class="faq-body">Sim. Orientamos e acompanhamos os próximos passos, ajudando você a entender prazos, documentos e o caminho correto junto à seguradora.</div>
-                        </details>
-                        <details>
-                            <summary>Como comparar duas propostas diferentes?
-                                <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5l5-5H7Z"/></svg>
-                            </summary>
-                            <div class="faq-body">O ideal é comparar coberturas (incluindo terceiros), franquias, assistências e exclusões. A gente te ajuda a enxergar as diferenças reais além do preço.</div>
-                        </details>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="contato">
-            <div class="container">
-                <div class="section-header">
-                    <div>
-                        <p class="eyebrow">Contato</p>
-                        <h2 class="title">Vamos conversar</h2>
-                        <p class="subtitle">Escolha um canal e fale com a AmparaSeg. Se você já sabe o tipo de seguro, use a cotação rápida.</p>
-                    </div>
-                </div>
-
-                <div class="contact-grid">
-                    <div>
-                        <div class="contact-list">
-                            <div class="contact-item">
-                                <div class="icon" aria-hidden="true" style="margin: 0;">
-                                    <svg width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 14.2c-1.2 1.2-2.5 1.6-4 1.1c-2.3-.8-4.4-2.9-5.2-5.2c-.5-1.5-.1-2.8 1.1-4l1.2-1.2c.4-.4 1-.4 1.4 0l1.8 1.8c.4.4.4 1 0 1.4l-.9.9c-.2.2-.3.5-.2.8c.4 1.2 1.6 2.4 2.8 2.8c.3.1.6 0 .8-.2l.9-.9c.4-.4 1-.4 1.4 0l1.8 1.8c.4.4.4 1 0 1.4l-1.2 1.2Z"/></svg>
-                                </div>
-                                <div>
-                                    <strong>WhatsApp</strong>
-                                    <span><a target="_blank" rel="noopener" href="https://wa.me/558881155384?text=Olá,%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.">Iniciar conversa</a></span>
-                                </div>
-                            </div>
-
-                            <div class="contact-item">
-                                <div class="icon" aria-hidden="true" style="margin: 0;">
-                                    <svg width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4l-8 5L4 8V6l8 5l8-5v2Z"/></svg>
-                                </div>
-                                <div>
-                                    <strong>E-mail</strong>
-                                    <span><a href="mailto:adm@amparaseg.com.br">adm@amparaseg.com.br</a></span>
-                                </div>
-                            </div>
-
-                            <div class="contact-item">
-                                <div class="icon" aria-hidden="true" style="margin: 0;">
-                                    <svg width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 9.2A2.2 2.2 0 1 0 12 6.8a2.2 2.2 0 0 0 0 4.4Z"/></svg>
-                                </div>
-                                <div>
-                                    <strong>Endereço</strong>
-                                    <span>Rua Padre Cícero Coutinho, 17 - Tiradentes<br>Juazeiro do Norte - CE, CEP 63030-815</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <h3>Enviar uma mensagem</h3>
-                        <p>Sem formulário com servidor: a mensagem vai direto no WhatsApp para não perder tempo.</p>
-                        <form class="form-grid" id="contactForm">
-                            <div class="field">
-                                <label class="label" for="cNome" style="color: var(--text);">Nome</label>
-                                <input class="input" id="cNome" name="cNome" autocomplete="name" placeholder="Seu nome" required>
-                            </div>
-                            <div class="field">
-                                <label class="label" for="cMsg" style="color: var(--text);">Mensagem</label>
-                                <textarea class="textarea" id="cMsg" name="cMsg" placeholder="Escreva sua dúvida ou o tipo de seguro que procura" required></textarea>
-                            </div>
-                            <button class="btn btn-primary" type="submit">Enviar no WhatsApp</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-inner">
-                <div class="footer-top">
-                    <div style="display: grid; gap: 4px;">
-                        <strong style="color: #fff;">AmparaSeg</strong>
-                        <small>Corretora de Seguros</small>
-                    </div>
-                    <div class="footer-links" aria-label="Links do rodapé">
-                        <a href="#seguros">Seguros</a>
-                        <a href="#como-funciona">Como funciona</a>
-                        <a href="#faq">Dúvidas</a>
-                        <a href="#contato">Contato</a>
-                    </div>
-                </div>
-                <small>As coberturas, valores e condições variam conforme seguradora, produto e perfil. Esta página tem caráter informativo.</small>
-                <small>&copy; 2026 AmparaSeg. Todos os direitos reservados.</small>
-            </div>
+      <div class="cotacao-grid">
+        <div class="cotacao-info">
+          <h3>Atendimento rápido e consultivo</h3>
+          <p>Envie seus dados e receba opções com explicação clara de coberturas, franquias e diferenças entre seguradoras.</p>
+          <ul class="cotacao-list">
+            <li>Comparação entre seguradoras e coberturas</li>
+            <li>Agilidade na cotação e acompanhamento do início ao fim</li>
+            <li>Suporte no sinistro e renovação</li>
+          </ul>
+          <div class="form-helper">Ao enviar, você será direcionado para o WhatsApp com a mensagem pronta.</div>
         </div>
+
+        <div class="cotacao-form">
+          <h3>Formulário de cotação</h3>
+          <p>Preencha o essencial e envie.</p>
+          <form class="form-grid" id="quoteForm">
+            <label>
+              Nome
+              <input id="qNome" name="nome" autocomplete="name" placeholder="Seu nome" required>
+            </label>
+            <label>
+              WhatsApp
+              <input id="qWhats" name="whats" inputmode="tel" autocomplete="tel" placeholder="(DDD) 00000-0000" required>
+            </label>
+            <label>
+              Tipo de seguro
+              <select id="qTipo" name="tipo" required>
+                <option value="" selected disabled>Selecione</option>
+                <option>Auto</option>
+                <option>Residencial</option>
+                <option>Vida</option>
+                <option>Saúde</option>
+                <option>Empresarial</option>
+                <option>Transporte</option>
+                <option>Garantia</option>
+                <option>Viagem</option>
+                <option>Outros</option>
+              </select>
+            </label>
+            <label>
+              Detalhes (opcional)
+              <textarea id="qMsg" name="mensagem" placeholder="Ex.: ano/modelo, cidade, perfil, necessidades, etc."></textarea>
+            </label>
+            <button class="submit-btn" type="submit">Enviar no WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="sobre">
+      <div class="about-img"></div>
+      <div class="about-content">
+        <div class="section-kicker">Quem somos</div>
+        <h2>Cuidado, confiança e compromisso com você</h2>
+        <p>Mais que uma corretora, somos parceiros para proteger o que mais importa. Trabalhamos com as melhores seguradoras do mercado para oferecer soluções personalizadas, atendimento próximo e suporte em todas as etapas.</p>
+      </div>
+    </section>
+
+    <section class="insurers">
+      <h4>Trabalhamos com as melhores seguradoras</h4>
+      <div class="insurers-carousel" aria-label="Seguradoras parceiras">
+        <div class="insurers-track" aria-hidden="true">
+          <img class="insurer-logo" src="imagem/Porto_2022.svg.png" alt="">
+          <img class="insurer-logo" src="imagem/bradesco-seguros-logo-3-1.png" alt="">
+          <img class="insurer-logo" src="imagem/Logo_Sul_América_2015.jpg" alt="">
+          <img class="insurer-logo" src="imagem/Itau-Seguros-Logo-Vector.svg-.png" alt="">
+          <img class="insurer-logo" src="imagem/Allianz.png" alt="">
+          <img class="insurer-logo" src="imagem/hdi-seguros.png" alt="">
+          <img class="insurer-logo" src="imagem/mapfre.jpg" alt="">
+          <img class="insurer-logo" src="imagem/TOKIO-MARINE.jpg" alt="">
+          <img class="insurer-logo" src="imagem/azul.png" alt="">
+          <img class="insurer-logo" src="imagem/SUHAI-SEGURADORA-LOGO-1.png" alt="">
+          <img class="insurer-logo" src="imagem/darwin.png" alt="">
+          <img class="insurer-logo" src="imagem/Yelum.png" alt="">
+          <img class="insurer-logo" src="imagem/aliro-seguro.png" alt="">
+
+          <img class="insurer-logo" src="imagem/Porto_2022.svg.png" alt="">
+          <img class="insurer-logo" src="imagem/bradesco-seguros-logo-3-1.png" alt="">
+          <img class="insurer-logo" src="imagem/Logo_Sul_América_2015.jpg" alt="">
+          <img class="insurer-logo" src="imagem/Itau-Seguros-Logo-Vector.svg-.png" alt="">
+          <img class="insurer-logo" src="imagem/Allianz.png" alt="">
+          <img class="insurer-logo" src="imagem/hdi-seguros.png" alt="">
+          <img class="insurer-logo" src="imagem/mapfre.jpg" alt="">
+          <img class="insurer-logo" src="imagem/TOKIO-MARINE.jpg" alt="">
+          <img class="insurer-logo" src="imagem/azul.png" alt="">
+          <img class="insurer-logo" src="imagem/SUHAI-SEGURADORA-LOGO-1.png" alt="">
+          <img class="insurer-logo" src="imagem/darwin.png" alt="">
+          <img class="insurer-logo" src="imagem/Yelum.png" alt="">
+          <img class="insurer-logo" src="imagem/aliro-seguro.png" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contato">
+      <div class="section-kicker">Contato</div>
+      <h2 class="section-title">Vamos conversar</h2>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-item">
+            <div class="contact-badge">☏</div>
+            <div>
+              <strong>WhatsApp</strong>
+              <span><a target="_blank" rel="noopener" href="https://wa.me/558881155384?text=Olá,%20gostaria%20de%20fazer%20uma%20cotação%20de%20seguro.">Iniciar conversa</a></span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-badge">✉</div>
+            <div>
+              <strong>E-mail</strong>
+              <span><a href="mailto:adm@amparaseg.com.br">adm@amparaseg.com.br</a></span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-badge">⌖</div>
+            <div>
+              <strong>Endereço</strong>
+              <span>Rua Padre Cícero Coutinho, 17 - Tiradentes<br>Juazeiro do Norte - CE, CEP 63030-815</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3>Enviar uma mensagem</h3>
+          <p>Sem formulário com servidor: a mensagem vai direto no WhatsApp para não perder tempo.</p>
+          <form class="form-grid" id="contactForm">
+            <label>
+              Nome
+              <input id="cNome" name="nome" autocomplete="name" placeholder="Seu nome" required>
+            </label>
+            <label>
+              Mensagem
+              <textarea id="cMsg" name="mensagem" placeholder="Escreva sua dúvida ou o tipo de seguro que procura" required></textarea>
+            </label>
+            <button class="submit-btn" type="submit">Enviar no WhatsApp</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div>
+          <div class="brand">
+            <div class="footer-logo-wrap">
+              <img class="footer-logo-img" src="imagem/AmparaSeg_idvisual_atual-2026-removebg-preview.png" alt="AmparaSeg">
+            </div>
+          </div>
+          <p>Nosso propósito é acolher, entender e proteger o que mais importa para você.</p>
+          <div class="socials">f ◎ in ☏</div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul><li><a href="#inicio">Início</a></li><li><a href="#seguros">Seguros</a></li><li><a href="#seguros">Empresas</a></li><li><a href="#cotacao">Cotação</a></li><li><a href="#sobre">Sobre Nós</a></li><li><a href="#contato">Contato</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>Seguros</h4>
+          <ul><li><a href="#cotacao">Seguro Auto</a></li><li><a href="#cotacao">Seguro Residencial</a></li><li><a href="#cotacao">Seguro Saúde</a></li><li><a href="#cotacao">Seguro de Vida</a></li><li><a href="#cotacao">Seguro Empresarial</a></li><li><a href="#cotacao">Outros Seguros</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>Atendimento</h4>
+          <ul><li><a target="_blank" rel="noopener" href="https://wa.me/558881155384?text=Olá,%20gostaria%20de%20fazer%20uma%20cotação%20de%20seguro.">☏ (88) 8115-5384</a></li><li><a href="mailto:adm@amparaseg.com.br">✉ adm@amparaseg.com.br</a></li><li>◷ Segunda a Sexta<br>08h às 18h</li><li>⌖ Juazeiro do Norte - CE</li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>Fale conosco</h4>
+          <p>Vamos encontrar o seguro ideal para você!</p>
+          <a target="_blank" rel="noopener" href="https://wa.me/558881155384?text=Olá,%20gostaria%20de%20fazer%20uma%20cotação%20de%20seguro." class="small-cta">▱ Solicitar Cotação</a>
+        </div>
+      </div>
+      <div class="copyright">© 2026 AmparaSeg Corretora de Seguros. Todos os direitos reservados.</div>
     </footer>
+  </div>
+  <script>
+    (function () {
+      var phone = "558881155384";
 
-    <a class="wa-fab" aria-label="Falar no WhatsApp" target="_blank" rel="noopener" href="https://wa.me/558881155384?text=Olá,%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.">
-        <svg viewBox="0 0 32 32" aria-hidden="true">
-            <path d="M19.11 17.08c-.3-.15-1.79-.88-2.06-.98c-.28-.1-.48-.15-.68.15c-.2.3-.78.98-.96 1.18c-.18.2-.35.22-.65.07c-.3-.15-1.26-.46-2.4-1.47c-.89-.79-1.49-1.77-1.66-2.07c-.18-.3-.02-.46.13-.61c.13-.13.3-.35.45-.52c.15-.17.2-.3.3-.5c.1-.2.05-.37-.03-.52c-.08-.15-.68-1.64-.93-2.25c-.24-.58-.48-.5-.68-.5h-.58c-.2 0-.52.07-.8.37c-.28.3-1.05 1.02-1.05 2.5c0 1.47 1.08 2.9 1.23 3.1c.15.2 2.12 3.23 5.14 4.53c.72.31 1.28.5 1.71.64c.72.23 1.38.2 1.9.12c.58-.09 1.79-.73 2.04-1.43c.25-.7.25-1.31.17-1.43c-.08-.12-.27-.2-.57-.35ZM16 3C8.83 3 3 8.65 3 15.61c0 2.23.6 4.4 1.75 6.29L3 29l7.31-1.92a13.28 13.28 0 0 0 5.69 1.27C23.17 28.35 29 22.7 29 15.74C29 8.79 23.17 3 16 3Zm0 22.9c-1.9 0-3.76-.49-5.4-1.43l-.39-.22l-4.34 1.14l1.16-4.16l-.26-.41a10.9 10.9 0 0 1-1.73-5.87C5.04 9.99 9.99 5.17 16 5.17c6.01 0 10.96 4.82 10.96 10.78c0 5.96-4.95 10.95-10.96 10.95Z"/>
-        </svg>
-    </a>
+      function buildWhatsAppUrl(message) {
+        return "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+      }
 
-    <script>
-        (function () {
-            var menuBtn = document.getElementById("menuBtn");
-            var mobileMenu = document.getElementById("mobileMenu");
+      function normalizePhone(value) {
+        return (value || "").replace(/[^\d]/g, "");
+      }
 
-            function setMenu(open) {
-                mobileMenu.dataset.open = open ? "true" : "false";
-                menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-            }
+      var mobileNav = document.querySelector(".mobile-nav");
+      if (mobileNav) {
+        mobileNav.addEventListener("click", function (event) {
+          var target = event.target;
+          if (target && target.tagName === "A") {
+            mobileNav.removeAttribute("open");
+          }
+        });
+      }
 
-            menuBtn.addEventListener("click", function () {
-                var isOpen = mobileMenu.dataset.open === "true";
-                setMenu(!isOpen);
-            });
+      var quoteForm = document.getElementById("quoteForm");
+      if (quoteForm) {
+        quoteForm.addEventListener("submit", function (event) {
+          event.preventDefault();
 
-            mobileMenu.addEventListener("click", function (event) {
-                var target = event.target;
-                if (target && target.tagName === "A") {
-                    setMenu(false);
-                }
-            });
+          var nome = (document.getElementById("qNome").value || "").trim();
+          var whats = normalizePhone(document.getElementById("qWhats").value);
+          var tipo = (document.getElementById("qTipo").value || "").trim();
+          var msg = (document.getElementById("qMsg").value || "").trim();
 
-            function normalizePhone(value) {
-                return (value || "").replace(/[^\d]/g, "");
-            }
+          var lines = [
+            "Olá! Gostaria de solicitar uma cotação de seguro.",
+            "Nome: " + nome,
+            "Meu WhatsApp: " + (whats ? whats : "não informado"),
+            "Tipo: " + tipo
+          ];
+          if (msg) lines.push("Detalhes: " + msg);
 
-            function buildWhatsAppUrl(message) {
-                var phone = "558881155384";
-                var text = encodeURIComponent(message);
-                return "https://wa.me/" + phone + "?text=" + text;
-            }
+          window.open(buildWhatsAppUrl(lines.join("\n")), "_blank", "noopener");
+        });
+      }
 
-            var quoteForm = document.getElementById("quoteForm");
-            quoteForm.addEventListener("submit", function (event) {
-                event.preventDefault();
+      var contactForm = document.getElementById("contactForm");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (event) {
+          event.preventDefault();
 
-                var nome = document.getElementById("nome").value.trim();
-                var whats = normalizePhone(document.getElementById("whats").value);
-                var tipo = document.getElementById("tipo").value.trim();
-                var detalhes = document.getElementById("mensagem").value.trim();
+          var nome = (document.getElementById("cNome").value || "").trim();
+          var msg = (document.getElementById("cMsg").value || "").trim();
 
-                var linhas = [
-                    "Olá! Quero fazer uma cotação de seguro.",
-                    "Nome: " + nome,
-                    "Meu WhatsApp: " + (whats ? whats : "não informado"),
-                    "Tipo: " + tipo
-                ];
-                if (detalhes) linhas.push("Detalhes: " + detalhes);
-
-                window.open(buildWhatsAppUrl(linhas.join("\n")), "_blank", "noopener");
-            });
-
-            var contactForm = document.getElementById("contactForm");
-            contactForm.addEventListener("submit", function (event) {
-                event.preventDefault();
-
-                var nome = document.getElementById("cNome").value.trim();
-                var msg = document.getElementById("cMsg").value.trim();
-                var linhas = ["Olá! Meu nome é " + nome + ".", msg];
-
-                window.open(buildWhatsAppUrl(linhas.join("\n")), "_blank", "noopener");
-            });
-        })();
-    </script>
+          var lines = ["Olá! Meu nome é " + nome + ".", msg];
+          window.open(buildWhatsAppUrl(lines.join("\n")), "_blank", "noopener");
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
