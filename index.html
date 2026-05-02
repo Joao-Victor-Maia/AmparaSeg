@@ -188,6 +188,42 @@
       margin-top: 30px;
     }
 
+    .float-quote {
+      position: fixed;
+      right: 18px;
+      bottom: 90px;
+      height: 46px;
+      padding: 0 18px;
+      background: #006178;
+      color: #ffffff;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+      z-index: 60;
+    }
+
+    .float-wpp {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: #2c967e;
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      font-weight: 900;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+      z-index: 60;
+    }
+
     /* Hero */
     .hero {
       min-height: 562px;
@@ -671,13 +707,16 @@
       justify-content: center;
       background: rgba(255,255,255,.94);
       border-radius: 14px;
-      padding: 10px 12px;
+      width: 210px;
+      height: 56px;
+      padding: 0;
+      overflow: hidden;
       box-shadow: 0 12px 26px rgba(0,0,0,.18);
     }
 
     .footer-logo-img {
-      width: 170px;
-      height: 58px;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
     }
 
@@ -809,6 +848,9 @@
       .contact { padding: 40px 14px 50px; }
       .insurers { padding: 24px 14px 28px; }
       .insurer-logo { height: 38px; }
+
+      .float-quote { right: 14px; bottom: 84px; height: 44px; padding: 0 14px; font-size: 12px; }
+      .float-wpp { right: 14px; bottom: 14px; width: 54px; height: 54px; }
     }
   </style>
 </head>
@@ -862,7 +904,7 @@
     </section>
 
     <section class="services" id="seguros">
-      <div class="section-kicker">Soluções completas para você</div>
+      <div class="section-kicker">Soluções adequadas para você</div>
       <h2 class="section-title">Seguros para todas as fases da vida</h2>
 
       <div class="cards">
@@ -894,6 +936,12 @@
           <div class="big-icon">▣</div>
           <h3>Seguro Empresarial</h3>
           <p>Soluções completas para proteger sua empresa, negócio e colaboradores.</p>
+          <a href="#cotacao">Saiba mais ›</a>
+        </article>
+        <article class="card">
+          <div class="big-icon">▦</div>
+          <h3>Seguro Garantia</h3>
+          <p>Mais segurança para contratos e obrigações, com suporte em todas as etapas.</p>
           <a href="#cotacao">Saiba mais ›</a>
         </article>
       </div>
@@ -1078,6 +1126,9 @@
       </div>
       <div class="copyright">© 2026 AmparaSeg Corretora de Seguros. Todos os direitos reservados.</div>
     </footer>
+
+    <a class="float-quote" href="#cotacao" aria-label="Solicite sua cotação">▱ Solicite sua cotação</a>
+    <a class="float-wpp" aria-label="Falar no WhatsApp" target="_blank" rel="noopener" href="https://wa.me/558881155384?text=Olá,%20gostaria%20de%20fazer%20uma%20cotação%20de%20seguro.">☏</a>
   </div>
   <script>
     (function () {
